@@ -53,6 +53,7 @@
     ```
 3. `cd` into the cloned repository, and run the following commands:
     ```bash
+    sudo apt install golang-go
     go mod tidy
     go build -o redirect3 .
     ./redirect3 -host localhost -port 8080 -db ./links.db -password 'replace-with-a-long-password'
