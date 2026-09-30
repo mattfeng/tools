@@ -74,4 +74,4 @@
     ```
     - The password you use doesn't have to be particularly secure, because your app is only accessible via Tailscale.
 4. Navigate to http://YOUR_KERBEROS:8080/ to see if the app is working.
-5. Set up a custom search engine in Google Chrome by going to `chrome://settings/searchEngines`.
+5. [Set up a custom search engine in Google Chrome](https://chatgpt.com/share/6abd68ff-2120-83e9-9892-0754c0f218dd) to make using the URL shortener easier.
