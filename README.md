@@ -43,8 +43,20 @@
         git
     ```
 4. Run the commands found [here](https://dl.tailscale.com/stable/#ubuntu-noble) to install Tailscale on your remote machine.
-5. Set up `tmux` configuration:
-```
+    - Only run the commands for Ubuntu 24.04 (Noble Numbat).
+5. Configure Tailscale to work properly on MIT's network:
+    ```bash
+    sudo ip link set dev tailscale0 mtu 1100
+    ```
+5. Set up a basic `tmux` configuration:
+    ```bash
+    cat > ~/.tmux.conf <<'EOF'
+    set -g mouse on
+    set -g history-limit 100000
+    set -g base-index 1
+    setw -g pane-base-index 1
+    EOF
+    ```
 
 ## Install Redirect3
 
@@ -58,7 +70,8 @@
     sudo apt install golang-go
     go mod tidy
     go build -o redirect3 .
-    ./redirect3 -host 0.0.0.0 -port 8080 -db ./links.db -password 'replace-with-a-long-password'
+    ./redirect3 -host localhost -port 8080 -db ./links.db -password 'replace with an easy to remember password (but do not reuse passwords)'
     ```
+    - The password you use doesn't have to be particularly secure, because your app is only accessible via Tailscale.
 4. Navigate to http://YOUR_KERBEROS:8080/ to see if the app is working.
 5. Set up a custom search engine in Google Chrome by going to `chrome://settings/searchEngines`.
