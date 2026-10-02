@@ -4,7 +4,7 @@
 
 ### Local machine set up
 
-1. Install [Tailscale](https://tailscale.com/).
+1. Install [Tailscale](https://tailscale.com/). Sign up/register using GitHub.
 
 ### Remote (cloud) machine set up
 
