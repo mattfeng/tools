@@ -1,12 +1,61 @@
 # tools
 
-## Initial set up
-
-### Local machine set up
+## Local machine set up
 
 1. Install [Tailscale](https://tailscale.com/). Sign up/register using GitHub.
+2. If you are using WSL/Ubuntu, install `zsh` and Oh My Zsh to enhance your terminal:
+    - Update package lists:
+        ```bash
+        sudo apt update
+        ```
+    - Install `zsh`:
+        ```bash
+        sudo apt install -y zsh git curl
+        ```
+    - Set `zsh` as your default shell:
+        ```bash
+        chsh -s "$(command -v zsh)"
+        ```
+    - Restart your terminal for the changes to take effect. In the new terminal window, run:
+        ```bash
+        echo $SHELL
+        ```
+        You should see `/usr/bin/zsh`.
+    - Install Oh My Zsh by running the installation script:
+        ```bash
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        ```
+3. Install Docker, the most popular **container runtime**:
+    - For macOS:
+        - Install `colima` and `docker`:
+            ```bash
+            brew install colima docker
+            ```
+        - Start the `colima` virtual machine:
+            ```bash
+            colima start --arch host --vm-type vz --cpu 2 --memory 4 --disk 60
+            ```
+        - Verify that it worked (run line by line):
+            ```bash
+            colima status
+            docker context show
+            docker info
+            docker run --rm hello-world
+            docker run --rm alpine uname -m
+            ```
+    - For WSL/Ubuntu, follow [these instructions](https://chatgpt.com/share/6ad769c9-6bf8-83ea-b21f-40f1d2035298).
+4. Install the Devcontainers CLI. This lets you run coding harnesses like `codex`, etc. without giving it full access to your computer.
+    - For macOS:
+        ```bash
+        brew install devcontainer
+        ```
+    - For WSL/Ubuntu:
+        ```bash
+        curl -fsSL https://raw.githubusercontent.com/devcontainers/cli/main/scripts/install.sh | sh
+        ```
 
-### Remote (cloud) machine set up
+
+## Remote (cloud) machine set up
 
 1. Copy your public SSH key to the remote machine (replace `YOUR_KERBEROS` with your MIT Kerberos, and `IP_ADDRESS_OF_REMOTE_MACHINE` with the IP provided to you on Canvas:
     ```bash
