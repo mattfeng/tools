@@ -41,7 +41,6 @@
             docker context show
             docker info
             docker run --rm hello-world
-            docker run --rm alpine uname -m
             ```
     - For WSL/Ubuntu, follow [these instructions](https://chatgpt.com/share/6ad769c9-6bf8-83ea-b21f-40f1d2035298).
 4. Install the Devcontainers CLI. This lets you run coding harnesses like `codex`, etc. without giving it full access to your computer.
@@ -50,9 +49,15 @@
         brew install devcontainer
         ```
     - For WSL/Ubuntu:
-        ```bash
-        curl -fsSL https://raw.githubusercontent.com/devcontainers/cli/main/scripts/install.sh | sh
-        ```
+        - Run the installation script:
+            ```bash
+            curl -fsSL https://raw.githubusercontent.com/devcontainers/cli/main/scripts/install.sh | sh
+            ```
+        - Add the Devcontainer CLI to your PATH variable:
+            ```bash
+            echo 'export PATH="$HOME/.devcontainers/bin:$PATH"' >> ~/.zshrc
+            source ~/.zshrc
+            ```
 
 
 ## Remote (cloud) machine set up
